@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Router from 'components/Router';
 /*
     🤷‍♂️ 파일 Absolute imports 설정하기
@@ -7,11 +7,25 @@ import Router from 'components/Router';
 import { authService } from 'fbase';
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
-    console.log(authService.currentUser);
+    const [init, setInit] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    useEffect(() => {
+        authService.onAuthStateChanged((user) => {
+            console.log(user, !!user);
+            if (user) {
+                setIsLoggedIn(true);
+            } else {
+                setIsLoggedIn(false);
+            }
+            setInit(true);
+        });
+    }, []);
+    // setInterval(() => {
+    //     console.log(authService.currentUser);
+    // }, 2000);
     return (
         <>
-            <Router isLoggedIn={isLoggedIn} />
+            {init ? <Router isLoggedIn={isLoggedIn} /> : 'Initializing...'}
             <footer>&copy; Nwitter {new Date().getFullYear()}</footer>
         </>
     );
