@@ -28,8 +28,8 @@ function App() {
     // }, 2000);
     return (
         <>
-            {init ? <Router isLoggedIn={isLoggedIn} userObj={userObj} /> : 'Initializing...'}
-            <footer>&copy; Nwitter {new Date().getFullYear()}</footer>
+            {init ? <Router isLoggedIn={userObj} userObj={userObj} /> : 'Initializing...'}
+            {/* <footer>&copy; Nwitter {new Date().getFullYear()}</footer> */}
         </>
     );
 }
