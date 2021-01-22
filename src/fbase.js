@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/storage';
 /* 
     Github에 키를 직접 업로드하는 것을 피하고자 env 파일로 별도로 만들어 작성하였음.
     그러나 빌드 시점에서는 결국에는 보일 수밖에 없다.
@@ -23,3 +24,4 @@ export const firebaseInstance = firebase;
 
 export const authService = firebase.auth();
 export const dbServce = firebase.firestore();
+export const storageService = firebase.storage();
