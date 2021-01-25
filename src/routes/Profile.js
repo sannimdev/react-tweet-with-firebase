@@ -13,7 +13,7 @@ export default ({ userObj }) => {
         const nweets = await dbServce
             .collection('nweets')
             .where('creatorId', '==', userObj.uid)
-            .orderBy('createdAt', 'desc') // 색인이 생성된 이후에 사용할 수 있다.
+            // .orderBy('createdAt', 'desc') 색인이 생성된 이후에 사용할 수 있다.
             .get();
         console.log(nweets.docs.map((doc) => doc.data()));
     };
