@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
-import { authService, dbServce } from 'fbase';
+import React, { useState } from 'react';
+import { authService } from 'fbase';
 import { useHistory } from 'react-router-dom';
 
 export default ({ userObj }) => {
     const history = useHistory();
+    const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
     const onLogOutClick = () => {
         authService.signOut();
         history.push('/');
@@ -18,12 +19,33 @@ export default ({ userObj }) => {
         console.log(nweets.docs.map((doc) => doc.data()));
     };
 
-    useEffect(() => {
-        getMyNweets();
-    }, []);
+    const onChange = (event) => {
+        const {
+            target: { value },
+        } = event;
+        setNewDisplayName(value);
+    };
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        if (userObj.displayName !== newDisplayName) {
+            await userObj.updateProfile({
+                displayName: newDisplayName,
+            });
+        }
+    };
 
     return (
         <>
+            <form onSubmit={onSubmit}>
+                <input
+                    type='text'
+                    placeholder='Display name'
+                    value={newDisplayName}
+                    onChange={onChange}
+                />
+                <input type='submit' value='Update profile' />
+            </form>
             <button onClick={onLogOutClick}>Log out</button>
         </>
     );
