@@ -16,7 +16,11 @@ function App() {
             // console.log(user, !!user);
             if (user) {
                 setIsLoggedIn(true);
-                setUserObj(user);
+                setUserObj({
+                    displayName: user.displayName,
+                    uid: user.uid,
+                    updateProfile: (args) => user.updateProfile(args),
+                });
             } else {
                 setIsLoggedIn(false);
             }
@@ -26,9 +30,23 @@ function App() {
     // setInterval(() => {
     //     console.log(authService.currentUser);
     // }, 2000);
+
+    const refreshUser = () => {
+        const user = authService.currentUser;
+        setUserObj({
+            displayName: user.displayName,
+            uid: user.uid,
+            updateProfile: (args) => user.updateProfile(args),
+        });
+    };
+
     return (
         <>
-            {init ? <Router isLoggedIn={userObj} userObj={userObj} /> : 'Initializing...'}
+            {init ? (
+                <Router isLoggedIn={userObj} userObj={userObj} refreshUser={refreshUser} />
+            ) : (
+                'Initializing...'
+            )}
             {/* <footer>&copy; Nwitter {new Date().getFullYear()}</footer> */}
         </>
     );
