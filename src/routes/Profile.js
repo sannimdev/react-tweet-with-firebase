@@ -32,7 +32,6 @@ export default ({ refreshUser, userObj }) => {
             await userObj.updateProfile({
                 displayName: newDisplayName,
             });
-            refreshUser();
         }
     };
 
