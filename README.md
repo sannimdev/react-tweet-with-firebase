@@ -32,7 +32,7 @@
 3. [x] CRUD (NWEETING)
 4. [x] 파일 업로드 (FILE UPLOAD)
 5. [x] 프로필 편집 (EDIT PROFILE)
-6. [ ] 마무리 (FINISHING UP) ◀ 📌현재
+6. [x] 마무리 (FINISHING UP)
 
 ### styles.css 참고
 
