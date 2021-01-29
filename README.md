@@ -26,10 +26,10 @@
 
 ### 📋 목차
 
-0. [ ] 소개 (INTRODUCTION)
-1. [ ] 설치 (SETUP)
-2. [ ] 인증 (AUTHENTICATION)
-3. [ ] CRUD (NWEETING)
-4. [ ] 파일 업로드 (FILE UPLOAD)
-5. [ ] 프로필 편집 (EDIT PROFILE)
-6. [ ] 마무리 (FINISHING UP)
+0. [x] 소개 (INTRODUCTION)
+1. [x] 설치 (SETUP)
+2. [x] 인증 (AUTHENTICATION)
+3. [x] CRUD (NWEETING)
+4. [x] 파일 업로드 (FILE UPLOAD)
+5. [x] 프로필 편집 (EDIT PROFILE)
+6. [ ] 마무리 (FINISHING UP) ◀ 📌현재
