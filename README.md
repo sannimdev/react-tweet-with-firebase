@@ -33,3 +33,7 @@
 4. [x] 파일 업로드 (FILE UPLOAD)
 5. [x] 프로필 편집 (EDIT PROFILE)
 6. [ ] 마무리 (FINISHING UP) ◀ 📌현재
+
+### styles.css 참고
+
+[링크](https://github.com/nomadcoders/nwitter/commit/884f7275d25e7d7c544c81bab9fa6c4ba499b9ea?branch=884f7275d25e7d7c544c81bab9fa6c4ba499b9ea&diff=split)
